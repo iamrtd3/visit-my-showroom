@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicles - Visit My Showroom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Visit My Showroom</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="showroom.html">Vehicles</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Content area -->
+    <section class="vehicle-section">
+        <h1>Our Vehicles</h1>
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="Search vehicle..."
+            onkeyup="searchVehicles()"
+        >
+
+        <div class="filter-buttons">
+            <button onclick="filterVehicles('all')">All</button>
+            <button onclick="filterVehicles('car')">Cars</button>
+            <button onclick="filterVehicles('bike')">Bikes</button>
+        </div>
+
+        <div class="vehicle-container" id="vehicleContainer">
+            <!-- Dynamic Vehicles -->
+        </div>
+    </section>
+
+    <!-- Footer sabse niche -->
+    <footer>
+        <div class="footer-content">
+            <h3>Connect With Us</h3>
+            <div class="footer-socials">
+                <a href="https://instagram.com/iamrtd3" target="_blank" class="insta-btn">
+                    <i class="fab fa-instagram"></i> @iamrtd3
+                </a>
+                <a href="https://instagram.com/rtdvibe" target="_blank" class="insta-btn">
+                    <i class="fab fa-instagram"></i> @rtdvibe
+                </a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2026 Visit My Showroom | Built with ❤️</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

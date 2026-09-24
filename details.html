@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        Visit My Showroom
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="showroom.html">Vehicles</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="details">
+    <h1 id="vehicleName">Vehicle Details</h1>
+
+    <div class="details-box">
+        <img id="vehicleImg" src="" alt="" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        
+        <h3 id="vehiclePrice" style="margin-bottom: 15px; color: #111;">Price: -</h3>
+        <p><strong>Engine:</strong> <span id="vehicleEngine">-</span></p>
+        <p><strong>Power:</strong> <span id="vehiclePower">-</span></p>
+        <p><strong>Torque:</strong> <span id="vehicleTorque">-</span></p>
+        <p><strong>Transmission:</strong> <span id="vehicleTransmission">-</span></p>
+        <p><strong>Seating Capacity:</strong> <span id="vehicleSeating">-</span></p>
+        <p><strong>Fuel Type:</strong> <span id="vehicleFuel">-</span></p>
+
+        <button class="btn" style="margin-top: 20px;" onclick="bookVehicle()">Book Now</button>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let rawData = localStorage.getItem("selectedVehicleData");
+        if (rawData) {
+            let data = JSON.parse(rawData);
+            document.getElementById("vehicleName").innerText = data.name;
+            document.getElementById("vehicleImg").src = data.image;
+            document.getElementById("vehiclePrice").innerText = "Price: " + data.price;
+            document.getElementById("vehicleEngine").innerText = data.engine;
+            document.getElementById("vehiclePower").innerText = data.power;
+            document.getElementById("vehicleTorque").innerText = data.torque;
+            document.getElementById("vehicleTransmission").innerText = data.transmission;
+            document.getElementById("vehicleSeating").innerText = data.seating;
+            document.getElementById("vehicleFuel").innerText = data.fuel;
+        }
+    });
+
+    function bookVehicle() {
+        let loggedIn = localStorage.getItem("loggedIn");
+        if (!loggedIn) {
+            alert("Please login first to book a vehicle!");
+            window.location.href = "login.html";
+            return;
+        }
+        window.location.href = "booking.html";
+    }
+</script>
+
+</body>
+</html>

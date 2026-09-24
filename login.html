@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<section class="login">
+
+    <div class="login-box">
+
+        <h1>Customer Login</h1>
+
+
+        <form id="loginForm">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter email"
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter password"
+            >
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    document
+        .getElementById("loginForm")
+        .addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                let email =
+                    document.getElementById(
+                        "loginEmail"
+                    ).value;
+
+
+                let password =
+                    document.getElementById(
+                        "loginPassword"
+                    ).value;
+
+
+                if (
+                    email === "" ||
+                    password === ""
+                ) {
+
+                    alert(
+                        "Please enter email and password."
+                    );
+
+                    return;
+
+                }
+
+
+                localStorage.setItem(
+                    "loggedIn",
+                    "true"
+                );
+
+
+                localStorage.setItem(
+                    "customerEmail",
+                    email
+                );
+
+
+                alert(
+                    "Login successful!"
+                );
+
+
+                window.location.href =
+                    "showroom.html";
+
+            }
+        );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Vehicle</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        Visit My Showroom
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="showroom.html">Vehicles</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="booking">
+    <h1>Book Your Vehicle</h1>
+
+    <form id="bookingForm">
+        <label>Selected Vehicle</label>
+        <input type="text" id="vehicle" readonly>
+
+        <label>Customer Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="Enter mobile number" required>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+
+        <label>Preferred Test Drive / Delivery Date</label>
+        <input type="date" id="date" required>
+
+        <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+</section>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let selectedVehicle = localStorage.getItem("selectedVehicle");
+        let customerEmail = localStorage.getItem("customerEmail");
+
+        document.getElementById("vehicle").value = selectedVehicle || "";
+        if (customerEmail) {
+            document.getElementById("email").value = customerEmail;
+        }
+    });
+
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let mobile = document.getElementById("mobile").value;
+        let email = document.getElementById("email").value;
+        let date = document.getElementById("date").value;
+
+        if (!name || !mobile || !email || !date) {
+            alert("Please fill all details.");
+            return;
+        }
+
+        localStorage.setItem("customerName", name);
+        localStorage.setItem("customerMobile", mobile);
+        localStorage.setItem("customerEmail", email);
+        localStorage.setItem("bookingDate", date);
+
+        window.location.href = "confirmation.html";
+    });
+</script>
+
+</body>
+</html>

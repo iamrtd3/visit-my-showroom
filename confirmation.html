@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="confirmation">
+    <div class="confirmation-box">
+        <h1>Booking Successful!</h1>
+        <p>Your vehicle booking request has been submitted successfully.</p>
+
+        <div id="bookingDetails" style="text-align: left; margin: 20px 0;"></div>
+
+        <a href="showroom.html" class="btn">Back to Showroom</a>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let vehicle = localStorage.getItem("selectedVehicle");
+        let name = localStorage.getItem("customerName");
+        let mobile = localStorage.getItem("customerMobile");
+        let email = localStorage.getItem("customerEmail");
+        let date = localStorage.getItem("bookingDate");
+
+        document.getElementById("bookingDetails").innerHTML = `
+            <p><strong>Vehicle:</strong> ${vehicle}</p>
+            <p><strong>Customer Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Mobile:</strong> ${mobile}</p>
+            <p><strong>Date:</strong> ${date}</p>
+        `;
+    });
+</script>
+
+</body>
+</html>
